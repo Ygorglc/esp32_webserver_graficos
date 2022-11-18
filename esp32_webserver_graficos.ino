@@ -39,6 +39,17 @@ Adafruit_BME280 bme; // I2C
 // Replace with your network credentials
 const char* ssid = "REPLACE_WITH_YOUR_SSID";
 const char* password = "REPLACE_WITH_YOUR_PASSWORD";
+float aceleracao-x = 0;
+float aceleracao-y = 0;
+float aceleracao-z = 0;
+float magnetometro-x = 0;
+float magnetometro-y = 0;
+float magnetometro-z = 0;
+float giroscopio-x = 0;
+float giroscopio-y = 0;
+float giroscopio-z =0;
+float barometro = 0;
+float temperatura = 0;
 
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
@@ -123,6 +134,39 @@ void setup(){
   });
   server.on("/pressure", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send_P(200, "text/plain", readBME280Pressure().c_str());
+  });
+  server.on("/aceleracao-x", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send_P(200, "text/plain", );
+  });
+  server.on("/aceleracao-y", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send_P(200, "text/plain", );
+  });
+  server.on("/aceleracao-z", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send_P(200, "text/plain", );
+  });
+  server.on("/magnetometro-x", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send_P(200, "text/plain", );
+  });
+  server.on("/magnetometro-y", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send_P(200, "text/plain", );
+  });
+  server.on("/magnetometro-z", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send_P(200, "text/plain", );
+  });
+  server.on("/giroscopio-x", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send_P(200, "text/plain", );
+  });
+  server.on("/giroscopio-y", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send_P(200, "text/plain", );
+  });
+  server.on("/giroscopio-z", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send_P(200, "text/plain", );
+  });
+  server.on("/barometro", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send_P(200, "text/plain", );
+  });
+  server.on("/temperatura", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send_P(200, "text/plain", );
   });
 
   // Start server
